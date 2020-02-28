@@ -20,7 +20,7 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<EnemyHealth>().TakeDamage(1);
+            collision.GetComponent<EnemyHealth>().TakeDamage(bulletDamage);
             if (collision.GetComponent<EnemyHealth>().WillEnemyDie() == true)
             {
                 target = null;
@@ -35,6 +35,7 @@ public class BulletScript : MonoBehaviour
         if (target != null)
         {
             bullet.transform.position = Vector2.MoveTowards(bullet.position, target.position, bulletSpeed * Time.deltaTime);
+            //bullet.LookAt(target);
         }
         else
         {

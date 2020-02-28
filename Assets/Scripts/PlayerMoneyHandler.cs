@@ -31,7 +31,7 @@ public class PlayerMoneyHandler : MonoBehaviour
 
     public bool HasEnoughCash(float amount)
     {
-        if ((tempMoney - amount) > 0)
+        if ((tempMoney - amount) >= 0)
         {
             isBuying = true;
             return true;

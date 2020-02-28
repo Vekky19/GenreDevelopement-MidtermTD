@@ -9,6 +9,7 @@ public class TurrentTargeting : MonoBehaviour
     public Transform target;
 
     SpriteRenderer turrentSprite;
+    public SpriteRenderer reach;
 
     public bool CanPlace;
     public bool IsPlaced;
@@ -22,6 +23,15 @@ public class TurrentTargeting : MonoBehaviour
         CanPlace = true;
 
         turrentSprite.color = new Color(255, 255, 255, 255);
+    }
+
+    public void OnMouseEnter()
+    {
+        reach.enabled = true;
+    }
+    public void OnMouseExit()
+    {
+        reach.enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

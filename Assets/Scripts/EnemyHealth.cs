@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float enemyHealth = 3;
     public ParticleSystem effect;
+    public GameObject deathSprite;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (enemyHealth <= 0)
         {
+            Instantiate(deathSprite, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
             return true;
         }

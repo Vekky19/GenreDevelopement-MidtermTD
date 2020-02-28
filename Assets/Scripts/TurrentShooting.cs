@@ -6,6 +6,9 @@ public class TurrentShooting : MonoBehaviour
 {
     public bool IsPlaced;
 
+    public AudioClip[] audioFX;
+    AudioSource source;
+
     public float bulletCooldown = 30;
     float timer = 0;
 
@@ -17,6 +20,7 @@ public class TurrentShooting : MonoBehaviour
     private void Start()
     {
         IsPlaced = false;
+        source = GetComponent<AudioSource>();
     }
 
     void FireBullet()
@@ -24,6 +28,9 @@ public class TurrentShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Inverse(firePoint.rotation));
         BulletScript bulletS = bullet.GetComponent<BulletScript>();
         bulletS.target = firePoint.gameObject.GetComponentInParent<TurrentTargeting>().target;
+
+        source.clip = audioFX[Random.Range(0, audioFX.Length)];
+        source.Play();
     }
 
     // Update is called once per frame

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   turrent: {fileID: 5229736244408026986, guid: b51737eaad23dac4dbaf4678353aefd8, type: 3}
-  bulletDamage: 1
+  bulletDamage: 10
   bulletSpeed: 5
 --- !u!58 &609592102196064183
 CircleCollider2D:
